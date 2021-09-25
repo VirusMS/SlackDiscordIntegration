@@ -1,4 +1,4 @@
-CC			:= gcc
+CC			= gcc
 FLAGS		= -Wall -Wextra -Werror
 LIBS		= -I includes
 NAME		= sdi
@@ -9,9 +9,6 @@ SRCS		= \
 			srcs/main.c
 
 OBJS 		= ${SRCS:.c=.o}
-
-.c.o:
-			${CC} ${CFLAGS} ${LIBS} -c $< -o ${<:.c=.o}
 
 all:		${NAME}
 
@@ -27,3 +24,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
