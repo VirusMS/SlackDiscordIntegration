@@ -1,28 +1,29 @@
-CC	= gcc
-FLAGS	= -Wall -Wextra -Werror
-LIBS	= -I includes
-NAME	= sdi
+CC			:= gcc
+FLAGS		= -Wall -Wextra -Werror
+LIBS		= -I includes
+NAME		= sdi
 
-RM	= rm -f
+RM			= rm -f
 
-SRCS	= \
-	srcs/main.c
+SRCS		= \
+			srcs/main.c
 
-OBJS = ${SRCS:.c=.o}
+OBJS 		= ${SRCS:.c=.o}
 
 .c.o:
-		${CC} ${CFLAGS} ${LIBS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} ${LIBS} -c $< -o ${<:.c=.o}
 
-all:	${NAME}
+all:		${NAME}
 
 ${NAME}:	${OBJS}
+			${CC} ${CFLAGS} ${LIBS} -o ${NAME} ${OBJS}
 
 clean:
-		${RM} ${OBJS}
+			${RM} ${OBJS}
 
 fclean:		clean
-		${RM} ${NAME}
+			${RM} ${NAME}
 
-re:		fclean all
+re:			fclean all
 
-.PHONY		all clean fclean re
+.PHONY:		all clean fclean re
